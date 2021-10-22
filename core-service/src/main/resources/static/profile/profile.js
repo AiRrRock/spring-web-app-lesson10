@@ -1,9 +1,9 @@
-angular.module('market-front').controller('profileController', function ($scope, $http) {
-    const contextPath = 'http://localhost:8189/market/';
+angular.module('market-front').controller('profileController', function ($scope, $http, $localStorage) {
+    const contextPath = 'http://localhost:8189/market-core/';
 
     $scope.loadOrders = function () {
         $http({
-            url: contextPath + 'api/v1/orders',
+            url: 'http://localhost:8192/market-order/api/v1/orders/' + $localStorage.webMarketUser.username,
             method: 'GET'
         }).then(function (response) {
             $scope.orders = response.data;

@@ -3,7 +3,7 @@ angular.module('market-front').controller('orderConfirmationController', functio
 
     $scope.loadCart = function () {
         $http({
-            url: contextPath + 'api/v1/cart/' + $localStorage.webMarketGuestCartId,
+            url: 'http://localhost:8191/market-cart/api/v1/cart/' + $localStorage.webMarketGuestCartId,
             method: 'GET'
         }).then(function (response) {
             $scope.cart = response.data;
@@ -11,8 +11,10 @@ angular.module('market-front').controller('orderConfirmationController', functio
     };
 
     $scope.createOrder = function () {
+        $scope.orderDetails.userName = $localStorage.webMarketUser.username;
+        $scope.orderDetails.cartUid = $localStorage.webMarketGuestCartId;
         $http({
-            url: contextPath + 'api/v1/orders',
+            url: 'http://localhost:8192/market-order/api/v1/orders/',
             method: 'POST',
             data: $scope.orderDetails
         }).then(function (response) {

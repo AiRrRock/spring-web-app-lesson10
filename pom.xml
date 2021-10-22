@@ -8,6 +8,7 @@
         <module>cart-service</module>
 		<module>core-service</module>
 		<module>api</module>
+		<module>order-service</module>
 	</modules>
 
     <parent>

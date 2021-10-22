@@ -1,4 +1,4 @@
-package com.geekbrains.webapp.core.model;
+package com.geekbrains.webapp.order.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +22,7 @@ import java.util.List;
                 @NamedSubgraph(
                         name = "items-products",
                         attributeNodes = {
-                                @NamedAttributeNode("product")
+                                @NamedAttributeNode("productId")
                         }
                 )
         }
@@ -33,9 +33,8 @@ public class Order {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Long userId;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> items;
