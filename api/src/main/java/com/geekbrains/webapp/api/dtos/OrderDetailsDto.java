@@ -3,6 +3,8 @@ package com.geekbrains.webapp.api.dtos;
 public class OrderDetailsDto {
     private String phone;
     private String address;
+    private String userName;
+    private String cartUid;
 
     public String getPhone() {
         return phone;
@@ -21,5 +23,21 @@ public class OrderDetailsDto {
     }
 
     public OrderDetailsDto() {
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getCartUid() {
+        return cartUid;
+    }
+
+    public void setCartUid(String cartUid) {
+        this.cartUid = cartUid;
     }
 }

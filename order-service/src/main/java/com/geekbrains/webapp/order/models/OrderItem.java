@@ -1,4 +1,4 @@
-package com.geekbrains.webapp.core.model;
+package com.geekbrains.webapp.order.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,9 +22,8 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @Column(name = "product_id")
+    private Long productId;
 
     @Column(name = "quantity")
     private int quantity;
